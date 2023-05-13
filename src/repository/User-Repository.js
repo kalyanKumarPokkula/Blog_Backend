@@ -1,30 +1,10 @@
 import User from "../models/UserSchema.js";
+import CrudRepository from "./Crud_Repository.js";
 
-class UserRepository{
+class UserRepository extends CrudRepository{
     constructor(){
-
+        super(User);
     }
-
-    async create(data){
-        try {
-            let user = await User.create(data);
-            return user;
-        } catch (error) {
-            console.log("Something went wrong in the userRepo");
-            throw error;
-        }
-    }
-
-    async delete(id){
-        try {
-            let user = await User.findByIdAndDelete(id);
-            return user;
-        } catch (error) {
-            console.log("Something went wrong in the userRepo");
-            throw error;
-        }
-    }
-
 
 }
 
